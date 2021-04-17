@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="Templates/materialize.min.css">
+    <link rel="stylesheet" href="Templates/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Change destroyer</title>
+</head>
+
+<style>
+    .container {
+        position: relative;
+    }
+
+    #clear {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .window-title {
+        font-family: 'Montserrat', sans-serif;
+        color:white;
+        letter-spacing: 3px;
+    }
+
+    .window-appicon {
+        filter: invert(0%);
+    }
+    
+    .container {
+        overflow-y: scroll; /* For horiz. scroll, otherwise overflow-y: scroll; */
+
+        -ms-overflow-style: none;
+        overflow: -moz-scrollbars-none;
+        scrollbar-width: none;
+    }
+
+
+    .container::-webkit-scrollbar {
+        display: none;  /* Safari and Chrome */
+    }
+
+
+    .i {
+
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 3px;
+
+    }
+
+    html body {
+        background-color: #d4e8e5;
+        color: #e3a9aa;
+    }
+
+    .btn {
+        text-transform: none;
+        background-color: #e3a9aa;
+    }
+
+    a {
+        font-size: large;
+        color: rgb(201, 200, 200);
+    }
+
+    .btn:hover {
+        background-color: #9fe5dc;
+    }
+
+    div::-webkit-scrollbar { display: none; }
+</style>
+
+<body>
+
+
+    <div class="container">
+        <a href="main.html" class="btn-flat" style="color: #e3a9aa;">
+            < Main Menu</a> <a href="#" id="clear" onclick="window.location.reload()" class="btn-flat"
+                style="color: #e3a9aa;">
+                Clear fields
+        </a></div>
+    <div class="container center-align">
+        <h3 class="i fas fa-images"><img src="../icons/Finisher.png" alt=""> Electron</h3>
+        <p>Choose a file to close the CRs</p>
+        <a class="waves-effect waves-light btn-flat modal-trigger" href="#modal1" style="color: #e3a9aa;">IMPORTANT -
+            Read
+            Me</a>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content" style="color: black;">
+                <h6><strong>Guidelines to follow while closing CRs</strong></h6>
+                <p style="text-align: left;""><strong>1. Supported format</strong></p>
+                <img src=" Templates/CRcl.JPG" id="consumer" alt="">
+                    <p style="text-align: left;">It will only accept (.xlsx) excel format not csv/text file format.
+                    </p>
+                    <p style="text-align: left;"><strong>2. Column</strong></p>
+
+                    <p style="text-align: left;"> It should have header with name 'CR' (Capitalized as shown in the
+                        image)
+                    </p>
+                    <p style="text-align: left;"><strong>3. One DM person at a time</strong></p>
+
+                    <p style="text-align: left;">It will accept one person at a time to assign it and close it under.
+                        If any CRs already closed or Network CRs numbers are given. It will show them as output which
+                        are not closed.
+                    </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Thank You</a>
+            </div>
+        </div>
+        <form id="image-form">
+            <div class="file-field input-field">
+
+                <div class="btn">
+                    <span>Browse</span>
+                    <input type="file" id="csv1" onchange="text1()">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" style="color: #e3a9aa;"">
+                </div>
+
+            </div>
+
+            <label>DM On Call Person</label>
+            <select class=" browser-default" style="background-color: #e3a9aa; color: white;">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="Sri Edupuganti">Sri Edupuganti</option>
+                    <option value="Sasanka Vuyyuru">Sasanka Vuyyuru</option>
+                    <option value="Nibandh Nadkarni">Nibandh Nadkarni</option>
+                    <option value="Tejeshwar REPALA">Tejeshwar REPALA</option>
+                    <option value="Abhinesh Gutta">Abhinesh Gutta</option>
+                    <option value="Siddharth Pawar">Siddharth Pawar</option>
+                    <option value="Tony Gomez">Tony Gomez</option>
+                    <option value="CogMiddleware">Cog Middleware</option>
+                    </select>
+
+                    <br>
+
+                    <input type="submit" id="submit" value="Run Barry Run!" class="btn"
+                        onclick="M.toast({html: 'Process running..!! Please standby.'})">
+
+        </form>
+
+
+
+        <div class="output">
+
+        </div>
+
+        <script>
+            const customTitlebar = require('custom-electron-titlebar')
+
+            const titlebar = new customTitlebar.Titlebar({
+                backgroundColor: customTitlebar.Color.fromHex('#e3a9aa'),
+                icon: '../icons/molecule.png',
+                unfocusEffect: false,
+                titleHorizontalAlignment: 'left'
+            })
+        </script>
+        <script src="app3.js"></script>
+        <script src="Templates/materialize.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="Templates/materialize.min.css">
+    <link rel="stylesheet" href="Templates/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Post Man</title>
+</head>
+
+<style>
+    .container {
+        position: relative;
+    }
+
+    .container {
+        overflow-y: scroll; /* For horiz. scroll, otherwise overflow-y: scroll; */
+
+        -ms-overflow-style: none;
+        overflow: -moz-scrollbars-none;
+        scrollbar-width: none;
+    }
+
+
+    .container::-webkit-scrollbar {
+        display: none; 
+    }
+
+    #clear {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .window-title {
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        letter-spacing: 3px;
+    }
+
+    .window-appicon {
+        filter: invert(0%)
+    }
+
+    .invert_effect {
+        filter: invert(100%);
+
+    }
+
+    .i {
+
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 3px;
+
+    }
+
+    html body {
+        background-color: #754F7F;
+        color: #120D24;
+    }
+
+    .btn {
+        text-transform: none;
+        background-color: #2C1E42;
+        color: white;
+    }
+
+    a {
+        font-size: large;
+        color: rgb(201, 200, 200);
+    }
+
+    img {
+        filter: grayscale(50%);
+    }
+
+    .btn:hover {
+        background-color: #BD95B6;
+        color: black;
+    }
+</style>
+
+<body>
+
+
+    <div class="container">
+        <a href="main.html" class="btn-flat" style="color: #120D24;">
+            < Main Menu</a> <a href="#" id="clear" onclick="window.location.reload()" class="btn-flat" style="color: #120D24;">
+                Clear fields
+        </a></div>
+    <div class="container center-align">
+        <h3 class="i fas fa-images"><img class="invert_effect" src="../icons/molecule.png" alt=""> Proton</h3>
+        <p>Choose a Prod & PreProd build file to deliver</p>
+
+        <form id="image-form">
+            <div class="file-field input-field">
+
+                <div class="btn">
+                    <span>Choose a Prod file</span>
+                    <input type="file" id="csv1" onchange="text1()">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+
+            </div>
+
+            <div class="file-field input-field">
+
+                <div class="btn">
+                    <span>Choose a PreProd file</span>
+                    <input type="file" id="csv2" onchange="text2()">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+
+            </div>
+
+            <input type="submit" value="Dispatch" class="btn"
+                onclick="M.toast({html: 'Mails will be delivered to your outlook in 10 Secs'})">
+
+        </form>
+
+        <div class="output">
+
+        </div>
+
+
+
+    </div>
+    <script src="app1.js"></script>
+    <script src="Templates/materialize.min.js"></script>
+
+</body>
+
+</html>

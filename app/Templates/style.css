@@ -1,0 +1,21 @@
+body {
+    background-color: white;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 50px;
+    padding-top: 10px;
+}
+
+.btn {
+
+    /* width: 100%; */
+    background-color: black;
+}
+
+
+tr {
+    font-weight: lighter !important;
+}

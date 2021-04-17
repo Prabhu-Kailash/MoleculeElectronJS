@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="Templates/materialize.min.css">
+    <link rel="stylesheet" href="Templates/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Change Designer</title>
+</head>
+
+<style>
+    .container {
+        position: relative;
+    }
+
+    #clear {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #consumer {
+        width: 100%;
+        height: 50px;
+    }
+
+    #rework {
+        width: 100%;
+        height: 75px;
+    }
+
+    .window-title {
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        letter-spacing: 3px;
+    }
+
+    .window-appicon {
+        fill:aqua;
+    }
+
+    .invert_effect {
+        filter: invert(100%);
+        fill:aqua;
+
+    }
+
+    .i {
+
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 3px;
+
+    }
+
+    html body {
+        background-color: #dcc4bc;
+        color: #ee3e54;
+    }
+
+    a {
+        font-size: large;
+        color: #ee3e54;
+    }
+
+    .btn:hover {
+        background-color: rgb(184, 184, 184);
+    }
+
+    .datepicker-date-display{
+        background-color: #f8c43d;
+    }
+    .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done, .datepicker-day-button{
+        color: #ee3e54;
+    }
+
+    .datepicker-table td.is-today{
+        color: #ee3e54;
+    }
+
+    .datepicker-table td.is-selected {
+        background-color: #f8c43d;
+        color: #ee3e54;
+    }
+
+    .timepicker-digital-display {
+        background-color: #f8c43d;
+        color: #ee3e54;
+    }
+    .timepicker-tick {
+        color: #ee3e54;
+    }
+
+    ::placeholder {
+        color: white;
+    }
+
+    .switch label .lever {
+        background-color: white;
+        color: white;
+    }
+
+    .switch label input[type=checkbox]:checked+.lever {
+        background-color: #664141;
+        color: white;
+    }
+
+    .switch label input[type=checkbox]:checked+.lever::after {
+        background-color: #664141;
+        color: white;
+    }
+
+    div::-webkit-scrollbar { display: none; }
+</style>
+
+<body>
+
+    <div class="container">
+        <a href="main.html" class="btn-flat" style="color: white;">
+            < Main Menu</a> <a href="#" id="clear" onclick="window.location.reload()" class="btn-flat" style="color: white;">
+                Clear fields
+        </a></div>
+    <div class="container center-align" style="color: white;">
+
+        <h3 class="i fas fa-images"><img src="../icons/Molecule.png" alt=""> Neutron</h3>
+        <p>Choose a file to raise CR</p>
+        <div class="switch" id="clear" style="color: white;">
+            <label>
+                Middleware
+                <input type="checkbox" id="myswitch">
+                <span class="lever"></span>
+                FireWall
+            </label>
+        </div>
+        <a class="waves-effect waves-light btn-flat modal-trigger" href="#modal1" style="color: white;">IMPORTANT - Read
+            Me</a>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content" style="color: black;">
+                <h6><strong>Guidelines to follow while raising CRs</strong></h6>
+                <p style="text-align: left;""><strong>1. Normal new consumer builds</strong></p>
+                <img src=" Templates/consumer.JPG" id="consumer" alt="">
+                    <p style="text-align: left;">Submit as usual the file you submit in staging area for the build.
+                        Above higlighted columns are important for a successful run, if any of the below columns/values
+                        missed it will throw runtime error. (It's case sensitive)
+                    </p>
+                    <p style="text-align: left;"><strong>2. Rework builds</strong></p>
+                    <img src="Templates/rework.JPG" id="rework" alt="">
+                    <p style="text-align: left;"> Make sure column <strong>"ProducerConsumer"</strong> has "rework"
+                        mentioned and column
+                        <strong>"RoutingChannelTemplate"</strong> should have the respective changes you made eg.,
+                        (directory updated,
+                        consumer removed etc., Nothing more) if multiple consumers are altered (eg., EaseCent_5STARBANK
+                        &
+                        EaseCent_5STARBANK_1) mention in the same cell don't split it as two rows.
+                    </p>
+                    <p style="text-align: left;"><strong>3. Network CRs</strong></p>
+                    <img src="Templates/firewall.JPG" id="rework" alt="">
+                    <p style="text-align: left;"> Network CRs should be separate sheet, while Rework/new consumer CRs
+                        can be
+                        raised together in a single sheet. Mainly because the nature/severity of Network CRs & change
+                        duration window. Make sure to fill details as highlightd in above image.
+                        This will not include Middleware CR for the consumer (if in case it's a new build), this will
+                        only
+                        raise network ctask. Make sure to mention inbound/outboound in column "ProducerConsumer" and all
+                        the
+                        IPs in "RoutingChannelTemplate" column. <strong>MAKE SURE FIREWALL IS TURNED ON AT RIGHT TOP IN
+                            MAIN
+                            WINDOW</strong>
+                    </p>
+                    <h6><strong>General Instruction</strong></h6>
+                    <ul style="text-align: left;">
+                        <li>If you have more than one sheet of CRs to be raised make sure to raise one after one and
+                            also
+                            after
+                            each CR make sure to clear the fields using the <strong>CLEAR FIELD</strong> option at the
+                            right
+                            top</li>
+                        <li>If you encounter any error durinng run time or at the middle,
+                            <ol style="text-align: left;">
+
+                                <li>Go back to outlook, validate if any CRs are raised</li>
+                                <li>If you find some of the CRs are raised some wasn't</li>
+                                <li>Kindly have one's which were raised removed from the sheet and resubmit the updated
+                                    sheet again</li>
+                                <li>Make sure to clear fields before resubmitting the updated sheet</li>
+                            </ol>
+                        </li>
+                    </ul>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Thank You</a>
+            </div>
+        </div>
+        <form id="image-form">
+            <div class="file-field input-field">
+
+
+                <div class="btn" style="background-color: #664141;">
+                    <span>Browse</span>
+                    <input type="file" id="csv" onchange="text()" style="color: white;">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" id="csv1" type="text" style="color: white;">
+                </div>
+
+            </div>
+
+            <input type="text" class="datepicker" style="color: white;" placeholder="Select date to schedule CRs">
+            <input type="text" class="timepicker" style="color: white;" step="1" placeholder="Time to schedule CRs">
+
+            <div class="col s12" style="color: white;">
+                Change duration (in hours):
+                <div class="input-field inline" style="color: white;">
+                    <input id="email_inline" type="number" class="validate" style="color: white;">
+                    <label for="email_inline">Hours</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Please enter value in
+                        integer</span>
+                </div>
+            </div>
+            <br>
+            <input type="submit" id="submit" value="Forge it!" class="btn"
+                onclick="M.toast({html: 'Forging in progress. Please wait!'})" style="background-color: #664141;">
+
+
+
+        </form>
+
+        <div class="output">
+
+        </div>
+
+
+
+    </div>
+
+    <script src="app2.js"></script>
+    <script src="Templates/materialize.min.js"></script>
+</body>
+
+</html>

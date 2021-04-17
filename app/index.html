@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <link rel="stylesheet" href="Templates/materialize.min.css">
+    <link rel="stylesheet" href="Templates/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Build Validator</title>
+</head>
+
+<style>
+    .container {
+        position: relative;
+    }
+
+    #clear {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .window-title {
+        font-family: 'Montserrat', sans-serif;
+        color: black;
+        letter-spacing: 3px;
+    }
+
+    .window-appicon {
+        filter: invert(100%)
+    }
+
+    .invert_effect {
+        filter: invert(60%);
+
+    }
+
+    .i {
+
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 3px;
+
+    }
+
+    html body {
+        background-color: #ecf0f1;
+        color: #636766;
+    }
+
+    a {
+        font-size: large;
+        color: #636766;
+    }
+
+    img {
+        filter: grayscale(50%);
+    }
+
+    .btn:hover {
+        background-color: #ffffff;
+    }
+    div::-webkit-scrollbar { display: none; }
+</style>
+
+<body>
+
+
+    <div class="container">
+        <a href="main.html" class="btn-flat">
+            < Main Menu</a> <a href="#" id="clear" onclick="window.location.reload()" class="btn-flat">
+                Clear fields
+        </a></div>
+    <div class="container center-align">
+        <h3 class="i fas fa-images"><img class="invert_effect" src="../icons/molecule.png" alt=""> Atom</h3>
+        <p>Choose a build file to validate</p>
+        <form id="image-form">
+            <div class="file-field input-field">
+
+
+                <div class="btn" style="background-color: #fbb429;">
+                    <span>Browse</span>
+                    <input type="file" id="csv" onchange="text()">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+
+            </div>
+
+            <input type="submit" value="Validate" class="btn" style="background-color: #fbb429;"
+                onclick="M.toast({html: 'Validation in Progress! Please standby.'})">
+
+            <br>
+            <label>
+                <input class="with-gap" id="verify" type="radio" name="environment" value="Prod" checked />
+                <span>Production</span>
+            </label>
+
+            <label>
+                <input class="with-gap" id="verify" type="radio" name="environment" value="PreProd">
+                <span>PreProduction</span>
+            </label>
+
+        </form>
+
+        <div class="output">
+
+        </div>
+
+
+
+    </div>
+
+    <script src="app.js"></script>
+    <script src="Templates/materialize.min.js"></script>
+</body>
+
+</html>
